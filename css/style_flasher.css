@@ -1,0 +1,447 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary: #6a11cb;
+    --secondary: #2575fc;
+    --dark: #121212;
+    --darker: #0a0a0a;
+    --light: #f0f0f0;
+    --accent: #ff6b6b;
+    --success: #4caf50;
+    --warning: #ff9800;
+    --info: #2196f3;
+    
+}
+
+body {
+    background: linear-gradient(135deg, var(--darker), var(--dark));
+    color: var(--light);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+/* Галерея */
+.gallery {
+    margin: 60px 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    border-radius: 15px;
+    overflow: hidden;
+    height: 250px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    text-align: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .caption {
+    transform: translateY(0);
+}
+esp-web-install-button {
+    display: inline-block;
+    width: auto;
+}
+
+.btn-flash {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+/* Навигация */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+}
+
+.logo-icon {
+    font-size: 2.5rem;
+    color: var(--accent);
+}
+
+.logo-text {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(to right, var(--accent), var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-links a.active {
+    background: var(--primary);
+}
+
+/* Основной контент */
+.flash-container {
+    background: rgba(20, 20, 30, 0.8);
+    border-radius: 20px;
+    padding: 40px;
+    margin: 40px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.flash-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(106, 17, 203, 0.1) 0%, rgba(37, 117, 252, 0.05) 70%, transparent 100%);
+    z-index: -1;
+}
+
+.flash-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--accent);
+}
+
+.firmware-version {
+    text-align: center;
+    background: rgba(106, 17, 203, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+}
+
+.firmware-select {
+    margin: 30px 0;
+}
+
+.firmware-option {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: rgba(30, 30, 40, 0.7);
+    border-radius: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.firmware-option:hover {
+    background: rgba(40, 40, 50, 0.8);
+}
+
+.firmware-option.selected {
+    border-color: var(--success);
+    background: rgba(40, 40, 50, 0.9);
+}
+
+.firmware-option input {
+    margin-right: 15px;
+    width: 20px;
+    height: 20px;
+}
+
+.firmware-option .info {
+    flex: 1;
+}
+
+.firmware-option h3 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.firmware-option p {
+    color: #aaa;
+}
+
+.firmware-icon {
+    font-size: 2rem;
+    margin-left: 15px;
+    color: var(--primary);
+}
+
+.progress-container {
+    background: rgba(30, 30, 40, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 40px 0;
+}
+
+.progress-bar {
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    width: 0%;
+    transition: width 1s ease;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.flash-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 35px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+.browser-support {
+    display: none;
+    text-align: center;
+    padding: 40px;
+    background: rgba(20, 20, 30, 0.8);
+    border-radius: 20px;
+    margin: 40px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.browser-support h1 {
+    font-size: 2.2rem;
+    color: var(--accent);
+    margin-bottom: 30px;
+}
+
+.browser-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.browser-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--light);
+    transition: transform 0.3s ease;
+}
+
+.browser-link:hover {
+    transform: translateY(-5px);
+}
+
+.browser-icon {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.browser-name {
+    font-weight: 600;
+}
+
+.btn-cancel {
+    background: linear-gradient(135deg, #f44336, #d32f2f);
+}
+
+.device-diagram {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.device-diagram img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.instructions {
+    background: rgba(30, 30, 40, 0.7);
+    border-radius: 15px;
+    padding: 25px;
+    margin: 30px 0;
+}
+
+.instructions h3 {
+    color: var(--accent);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.instructions ol {
+    padding-left: 25px;
+    line-height: 1.8;
+}
+
+.instructions li {
+    margin-bottom: 10px;
+}
+
+/* Футер */
+footer {
+    background: rgba(10, 10, 15, 0.9);
+    padding: 40px 0;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--accent);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--info);
+}
+
+.credits {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #888;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .flash-container {
+        padding: 20px;
+    }
+    
+    .firmware-option {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .firmware-option .info {
+        margin: 15px 0;
+    }
+    
+    .flash-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

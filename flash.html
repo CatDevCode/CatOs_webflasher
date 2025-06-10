@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Прошивка CatOS - Игровая консоль/читалка на ESP32</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="css/style_flasher.css">
+    <link rel="icon" href="assets/logo.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html" class="logo">
+                <img src="assets/logo.png" alt="logo">
+                <div class="logo-text">CatOS</div>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Главная</a>
+                <a href="flash.html" class="active">Прошить</a>
+                <a href="https://github.com/CatDevCode/CatOs" target="_blank">GitHub <i class='fa fa-github'> </i></a>
+                <a href="https://oshwlab.com/oleggator2013/catos_catdevcode" target="_blank">PCB</a>
+            </div>
+        </nav>
+        
+        <div class="gallery-item">
+            <img src="https://raw.githubusercontent.com/CatDevCode/CatOs/main/assets/logo.jpg" alt="Логотип CatOS">
+        </div>
+        
+        <div id="notSupported" class="browser-support">
+            <h1>Ваш браузер не поддерживает прямое подключение к ESP</h1>
+            <p>Для прошивки CatOS через этот сайт требуется браузер с поддержкой Web Serial API.</p>
+            <p>Используйте один из следующих браузеров:</p>
+            
+            <div class="browser-links">
+                <a href="https://www.microsoft.com/edge" class="browser-link" target="_blank">
+                    <i class="fab fa-edge browser-icon"></i>
+                    <span class="browser-name">Microsoft Edge</span>
+                </a>
+                <a href="https://www.google.com/chrome/" class="browser-link" target="_blank">
+                    <i class="fab fa-chrome browser-icon"></i>
+                    <span class="browser-name">Google Chrome</span>
+                </a>
+                <a href="https://www.opera.com/" class="browser-link" target="_blank">
+                    <i class="fab fa-opera browser-icon"></i>
+                    <span class="browser-name">Opera</span>
+                </a>
+            </div>
+            
+            
+        </div>
+        
+        <div id="flashContent">
+            <div class="flash-container">
+                <h1 class="flash-title">Прошивка CatOS</h1>
+                
+                <div class="instructions">
+                    <h3>Перед прошивкой:</h3>
+                    <ol>
+                        <li>Подключите устройство ESP32 через USB</li>
+                        <li>Отключите батарею</li>
+                        <li>Нажмите и удерживайте кнопку BOOT во время подключения</li>
+                    </ol>
+                </div>
+                <div class="firmware-select">
+                    <div class="firmware-option selected" onclick="selectFirmware(this)">
+                        <input type="radio" name="firmware" id="full" checked>
+                        <div class="info">
+                            <h3>CatOS</h3>
+                            <p>Полный набор игр и утилит с OLED дисплеем (SPI) и 5 кнопками</p>
+                            <ul style="margin-top: 10px; padding-left: 20px; color: #aaa;">
+                                <li>Тетрис, Змейка, Flappy Bird</li>
+                                <li>Арканоид, Понг, Динозаврик</li>
+                                <li>Файловый менеджер, WiFi настройки</li>
+                                <li>Калькулятор, секундомер, таймер</li>
+                            </ul>
+                        </div>
+                        <i class="fas fa-gamepad firmware-icon"></i>
+                    </div>
+                    
+                    <div class="firmware-option" onclick="selectFirmware(this)">
+                        <input type="radio" name="firmware" id="lite">
+                        <div class="info">
+                            <h3>CatOS Lite</h3>
+                            <p>Упрощенная версия для шпоргалки с I2C дисплеем и 3 кнопками</p>
+                            <ul style="margin-top: 10px; padding-left: 20px; color: #aaa;">
+                                <li>Режим читалки (шпоргалки)</li>
+                                <li>Упрощенный интерфейс</li>
+                                <li>Энергоэффективный режим</li>
+                                <li>Быстрое переключение страниц</li>
+                            </ul>
+                        </div>
+                        <i class="fas fa-book firmware-icon"></i>
+                    </div>
+                </div>
+                <script
+                    type="module"
+                    src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module">
+                </script>
+                <div class="flash-controls">
+                    <button class="btn btn-cancel" onclick="location.href='index.html'">
+                        <i class="fas fa-arrow-left"></i> На главную
+                    </button>
+                    <div id="installButtonContainer" class="btn btn-flash">
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="instructions">
+                <h3>После прошивки:</h3>
+                <ol>
+                    <li>Нажмите кнопку RESET на плате если не включился oled экран.</li>
+                </ol>
+            </div>
+            <p class="instructions">Установщик на базе <a class="logo-text" href="https://esphome.github.io/esp-web-tools/">ESP Web Tools</a></p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CatOS</h3>
+                    <p>Прошивка для портативной игровой консоли на базе ESP32 с OLED-дисплеем.</p>
+                    <p style="margin-top: 10px;">Сделано с любовью ❤</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Ссылки</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://github.com/CatDevCode/CatOs" target="_blank">GitHub Репозиторий</a></li>
+                        <li><a href="https://github.com/CatDevCode/CatOs_Lite" target="_blank">CatOS Lite</a></li>
+                        <li><a href="https://oshwlab.com/oleggator2013/catos_catdevcode" target="_blank">Проект PCB</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Кредиты</h3>
+                    <ul class="footer-links">
+                        <li>Спасибо <a href="https://github.com/GyverLibs/" target="_blank">Алексу Гайверу</a> за библиотеки</li>
+                        <li>Спасибо проекту <a href="https://github.com/Nich1con/microReader/" target="_blank">MicroReader</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="credits">
+                <p>By <a class="logo-text" href="https://github.com/CatDevCode/" target="_blank">CatDevCode</a>.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if(!navigator.serial) {
+                document.getElementById("notSupported").style.display = 'block';
+                document.getElementById("flashContent").style.display = 'none';
+            } else {
+                document.getElementById("notSupported").style.display = 'none';
+                document.getElementById("flashContent").style.display = 'block';
+                
+                updateInstallButton();
+                
+                const options = document.querySelectorAll('.firmware-option');
+                options.forEach(option => {
+                    option.addEventListener('click', function() {
+                        selectFirmware(this);
+                    });
+                });
+            }
+        });
+
+        function updateInstallButton() {
+            const container = document.getElementById('installButtonContainer');
+            const isLite = document.getElementById('lite').checked;
+            const manifest = isLite 
+                ? 'webflash/manifest_lite.json' 
+                : 'webflash/manifest.json';
+            
+            container.innerHTML = `
+                <esp-web-install-button 
+                    id="installButton" 
+                    manifest="${manifest}"
+                    button-class="btn btn-flash"
+                >
+                    <i class="fas fa-bolt"></i> Прошить ${isLite ? 'Lite' : ''} версию
+                </esp-web-install-button>
+            `;
+        }
+
+        function selectFirmware(element) {
+            const options = document.querySelectorAll('.firmware-option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            element.classList.add('selected');
+            
+            const radio = element.querySelector('input[type="radio"]');
+            radio.checked = true;
+            
+            updateInstallButton();
+        }
+    </script>
+</body>
+</html>

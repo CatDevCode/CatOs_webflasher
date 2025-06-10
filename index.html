@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CatOS - Игровая консоль/читалка на ESP32</title>
+    <link rel="stylesheet" href="css/style_index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="icon" href="assets/logo.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="main-page">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="assets/logo.png" alt="logo">
+                    <div class="logo-text">CatOS</div>
+                </div>
+                <div class="nav-links">
+                    <a href="#" class="active">Главная</a>
+                    <a href="flash.html">Прошить</a>
+                    <a href="https://github.com/CatDevCode/CatOs" target="_blank">GitHub <i class='fa fa-github'></i> </a>
+                    <a href="https://oshwlab.com/oleggator2013/catos_catdevcode" target="_blank">PCB</a>
+                </div>
+            </nav>
+            
+            <section class="hero">
+                <h1>CatOS Игровая Консоль</h1>
+                <p>Открытая прошивка портативной игровой консоли на базе ESP32 с OLED-дисплеем. Игры, утилиты и системные инструменты в одном устройстве!</p>
+                
+                <div class="hero-content">
+                    <div class="hero-image">
+                        <img src="https://raw.githubusercontent.com/CatDevCode/CatOs/main/assets/pcb_with_components.jpg">
+                    </div>
+                    <div class="hero-info">
+                        <h2>CatOs</h2>
+                        <ul>
+                            <li><i class="fas fa-microchip"></i> Микроконтроллер ESP32</li>
+                            <li><i class="fas fa-display"></i> OLED дисплей 128x64 (SPI)</li>
+                            <li><i class="fas fa-gamepad"></i> 5 кнопок управления</li>
+                            <li><i class="fas fa-battery-full"></i> Литий-ионный аккумулятор</li>
+                            <li><i class="fas fa-wifi"></i> Поддержка WiFi (STA и AP режимы)</li>
+                        </ul>
+                        <a href="flash.html" class="btn btn-flash">
+                            <i class="fas fa-bolt"></i> Прошить ESP32
+                        </a>
+                    </div>
+                </div>
+                
+            </section>
+            
+            <div class="versions">
+                <div class="version-card">
+                    <i class="fas fa-gamepad version-icon"></i>
+                    <h3>CatOS</h3>
+                    <ul>
+                        <li>Тетрис, Змейка, Flappy Bird</li>
+                        <li>Ардуино дино, Понг, Арканоид</li>
+                        <li>Системные настройки через веб</li>
+                        <li>Файловый менеджер для LittleFS</li>
+                        <li>Калькулятор, секундомер, таймер</li>
+                    </ul>
+                </div>
+                <div class="version-card">
+                    <i class="fas fa-book version-icon"></i>
+                    <h3>CatOS Lite</h3>
+                    <ul>
+                        <li>Только режим читалки (шпоргалки)</li>
+                        <li>3 кнопки управления</li>
+                        <li>I2C дисплей</li>
+                        <li>Системные настройки через веб</li>
+                        <li>Энергоэффективный</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <section class="features">
+                <h2 class="section-title">Возможности</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-gamepad feature-icon"></i>
+                        <h3>6 Игр</h3>
+                        <p>Тетрис, Змейка, Flappy Bird, Арканоид и другие</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-wifi feature-icon"></i>
+                        <h3>WiFi Управление</h3>
+                        <p>Настройка системы через веб-интерфейс, управление LittleFS</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-folder feature-icon"></i>
+                        <h3>Файловый Менеджер</h3>
+                        <p>Работа с файлами в LittleFS (.txt, .h, .catos)</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-tools feature-icon"></i>
+                        <h3>Сервисное Меню</h3>
+                        <p>Калибровка батареи, форматирование LittleFS</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-calculator feature-icon"></i>
+                        <h3>Полезные Утилиты</h3>
+                        <p>Калькулятор, секундомер и таймер</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-code-branch feature-icon"></i>
+                        <h3>Открытый Код</h3>
+                        <p>Проект открыт для Pull-реквестов</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="gallery">
+                <h2 class="section-title">Галерея</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/CatDevCode/CatOs/main/assets/pcb1.jpg" alt="PCB CatOS">
+                        <div class="caption">Плата CatOS - вид сверху</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/CatDevCode/CatOs/main/assets/pcb2.jpg" alt="PCB CatOS">
+                        <div class="caption">Плата CatOS - вид снизу</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/CatDevCode/CatOs/main/assets/logo.jpg" alt="Логотип CatOS">
+                        <div class="caption">Логотип CatOS</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>CatOS</h3>
+                        <p>Прошивка для портативной игровой консоли на базе ESP32 с OLED-дисплеем. Включает набор игр, утилит и системных инструментов.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Ссылки</h3>
+                        <ul class="footer-links">
+                            <li><a href="https://github.com/CatDevCode/CatOs" target="_blank">GitHub Репозиторий</a></li>
+                            <li><a href="https://github.com/CatDevCode/CatOs_Lite" target="_blank">CatOS Lite</a></li>
+                            <li><a href="https://oshwlab.com/oleggator2013/catos_catdevcode" target="_blank">Проект PCB</a></li>
+                            <li><a href="https://github.com/GyverLibs/" target="_blank">Библиотеки GyverLibs</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Кредиты</h3>
+                        <ul class="footer-links">
+                            <li>Спасибо <a href="https://github.com/GyverLibs/" target="_blank">Алексу Гайверу</a> за библиотеки ❤</li>
+                            <li>Спасибо проекту <a href="https://github.com/Nich1con/microReader/" target="_blank">MicroReader</a></li>
+                            <li>Разработано с любовью ❤</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="credits">
+                    <p>By <a class="logo-text" href="https://github.com/CatDevCode/" target="_blank">CatDevCode</a>.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
